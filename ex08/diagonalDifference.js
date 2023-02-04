@@ -16,14 +16,12 @@ function diagonalDifference(matrix) {
   let sumRight = 0;
   let differenceLeftRight = 0;
 
-  for (let i = 0; i < 1; i++) {
-    sumLeft = matrix[i][i] + matrix[i + 1][i + 1] + matrix[i + 2][i + 2];
-    sumRight = matrix[i][i + 2] + matrix[i + 1][i + 1] + matrix[i + 2][i];
-    differenceLeftRight = sumLeft - sumRight;
+  for (let i = 0; i < matrix.length; i++) {
+    sumLeft += matrix[i][i];
+    sumRight += matrix[i][matrix.length - 1 - i];
+    differenceLeftRight = (sumLeft - sumRight) * -1;
   }
   return [sumLeft, sumRight, differenceLeftRight];
 }
 
-console.log(diagonalDifference(matrix));
-console.log(diagonalDifference(matrix));
 console.log(diagonalDifference(matrix));
