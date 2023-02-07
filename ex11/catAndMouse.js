@@ -10,13 +10,13 @@
 // The cats are at positions 2 (Cat A) and 5 (Cat B), and the mouse is at position 4. Cat B, at position 5 will arrive first since it is only 1 unit away while the other is 2 units away. Return 'Cat B'.
 
 function catAndMouse(x, y, z) {
-  if ((z - x) * 1 == 1 && x > y) {
+  if (Math.abs(z - x) < Math.abs(z - y)) {
     return "Cat A";
-  } else if ((z - y) * 1 == 1 && y > x) {
-    return "Cat B";
-  } else {
+  } else if (Math.abs(z - x) == Math.abs(z - y)) {
     return "Mouse C";
+  } else {
+    return "Cat B";
   }
 }
 
-console.log(catAndMouse(2, 1, 3));
+console.log(catAndMouse(1, 3, 2));
