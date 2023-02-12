@@ -5,20 +5,16 @@ function largestPrimeFactor(number) {
   let primeFactors = [];
   let counter = number;
   let maxNumberPrime = 0;
-  let i = 0;
 
-  while (i < counter) {
-    if (number % i == 0 && i != 1) {
+  for (i = 2; i < Math.sqrt(counter); i++) {
+    if (number % i == 0) {
       number = number / i;
-      i = i;
       primeFactors.push(i);
       if (i > maxNumberPrime) {
         maxNumberPrime = i;
       }
-    } else {
-      i++;
     }
   }
-  return `Prime factors of ${counter} are: ${primeFactors} and the largest prime factor is: ${maxNumberPrime}.`;
+  return maxNumberPrime;
 }
-console.log(largestPrimeFactor(13195));
+console.log(largestPrimeFactor(600851475143));
