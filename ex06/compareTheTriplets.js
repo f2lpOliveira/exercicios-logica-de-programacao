@@ -18,18 +18,22 @@
 // * Finally, for elements 2, a[2] > b[2] so Alice receives a point.
 // The return array is [1, 1] with Alice's score first and Bob's second.
 
-let alice = [17, 28, 30];
-let bob = [99, 16, 8];
+function compareTheTriplets(arrPlayer1, arrPlayer2) {
+  let pointsPlayer1 = 0;
+  let pointsPlayer2 = 0;
 
-let alicePoints = 0;
-let bobPoints = 0;
-
-for (let i = 0; i < alice.length; i++) {
-  if (alice[i] > bob[i]) {
-    alicePoints += 1;
-  } else if (alice[i] < bob[i]) {
-    bobPoints += 1;
+  for (let i = 0; i < arrPlayer1.length; i++) {
+    if (arrPlayer1[i] > arrPlayer2[i]) {
+      pointsPlayer1 += 1;
+    } else if (arrPlayer1[i] < arrPlayer2[i]) {
+      pointsPlayer2 += 1;
+    }
+  }
+  if (pointsPlayer1 > pointsPlayer2) {
+    return "Player 1 Wins";
+  } else {
+    return "Player 2 Wins";
   }
 }
 
-console.log([alicePoints, bobPoints]);
+console.log(compareTheTriplets([17, 28, 30], [99, 16, 50]));
